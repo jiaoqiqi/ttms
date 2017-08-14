@@ -1,8 +1,29 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = new express();
+const path = require('path');
 
-app.use(express.static('./'));
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
+const hello = require('./server/routers/hello');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
+
+app.use(express.static(__dirname + '/public'));
+
+
+app.use(express.static(__dirname + '/public'));
+
+app.use("/", hello);
+
+
+app.get("*", function (req, res) {
+    res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
 });
+
+app.listen(3000, () => {
+    console.log('server start');
+});
+
