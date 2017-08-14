@@ -1,8 +1,15 @@
+const path = require('path');
+const webpack = require("webpack");
+
 module.exports = {
-    entry: "./entry.js",
+
+    entry: {
+        vendor: ["react", "react-dom"],
+        index: "./public/js/main.js"
+    },
     output: {
-        path: __dirname,
-        filename: "bundle.js"
+        path: path.resolve("./public/dist"),
+        filename: "[name].js"
     },
     module: {
         loaders: [
