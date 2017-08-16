@@ -7,7 +7,7 @@ let userSQL = require('../userSql');
 
 router.post('/userInsert', (req, res) => {
     console.log(req.body);
-    db.query(userSQL.insert, [req.body.name, req.body.password, req.body.roel,
+    db.query(userSQL.insert, [req.body.name, req.body.password, req.body.role,
          req.body.note], function (err, result) {
         if (err) return err;
 

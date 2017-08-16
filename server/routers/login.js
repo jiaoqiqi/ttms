@@ -7,5 +7,4 @@ router.post("/userInfo", (req, res) => {
     res.json({isSuccess: true});
 
 });
-
 module.exports = router;

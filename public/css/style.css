@@ -1,4 +1,5 @@
 back{
+    /*background-image: url("../dist/images/back.jpg");*/
     background-image: url("../dist/images/back.jpg");
     background-position: center;
     background-attachment:fixed;  /*背景图不跟着文字移动*/
