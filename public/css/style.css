@@ -1,5 +1,5 @@
 .back{
-    background-image: url("image/1.jpg");
+    background-image: url("../images/1.jpg");
     background-position: center;
     background-attachment:fixed;  /*背景图不跟着文字移动*/
     background-size: cover;  /*图片大小平铺*/
