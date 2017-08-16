@@ -1,8 +1,6 @@
-// require('../../css/style.css')
+require('../../css/style.css')
 import React ,{Component} from 'react';
-import {browserHistory} from 'react-router';
-
-
+// import {browserHistory} from 'react-router';
 
 export default class Login extends Component {
 
@@ -20,7 +18,7 @@ export default class Login extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.logSuccess === true) {
             alert("login success");
-            browserHistory.push('/hello');
+            // browserHistory.push('/hello');
         } else if(nextProps.logSuccess === false) {
             alert("login failed");
         }

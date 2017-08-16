@@ -1,9 +1,27 @@
-back{
-    /*background-image: url("../dist/images/back.jpg");*/
-    background-image: url("../dist/images/back.jpg");
+.back{
+    background-image: url("image/1.jpg");
     background-position: center;
     background-attachment:fixed;  /*背景图不跟着文字移动*/
-    background-size: cover;  /*//图片大小平铺*/
+    background-size: cover;  /*图片大小平铺*/
+}
+
+.titlePage {
+    margin-bottom: 30px;
+}
+
+.submitButton {
+    margin-top: 30px;
+}
+
+.logPage {
+    margin-top: 15%;
+    height: 25%;
+    width: 30%;
+}
+
+.account{
+    margin-top: 20px;
+    width: 250px;
 }
 
 .logButton {
@@ -11,3 +29,14 @@ back{
     width: 50px;
     margin-bottom: 195px;
 }
+
+
+.logColor{
+    height: 600px;
+
+}
+
+
+
+
+
