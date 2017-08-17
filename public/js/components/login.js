@@ -1,6 +1,6 @@
 require('../../css/style.css')
 import React ,{Component} from 'react';
-// import {browserHistory} from 'react-router';
+import {browserHistory} from 'react-router';
 
 export default class Login extends Component {
 
@@ -18,9 +18,11 @@ export default class Login extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.logSuccess === true) {
             alert("login success");
-            // browserHistory.push('/hello');
+            browserHistory.push('/hello');
         } else if(nextProps.logSuccess === false) {
             alert("login failed");
+
+
         }
 
         this.props.onChangeLogSuccess();
@@ -31,8 +33,8 @@ export default class Login extends Component {
         return <div className="container-fluid back">
 
             <div className="col-md-5 col-md-offset-7 logPage ">
-
-                <h2>登录</h2>
+                <h2>登 录</h2>
+                <hr/>
                 <div className="input-group account">
                     <label className="input-group-addon ">账号</label>
                     <input type="text" id="account" ref="userName" className="form-control"/>
