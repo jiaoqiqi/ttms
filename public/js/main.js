@@ -9,7 +9,8 @@ import middleHello from './middlewares/hello';
 import middleLogin from './middlewares/login'
 
 import Hello from './containers/hello';
-import Login from './containers/login'
+import Login from './containers/login';
+import Register from './containers/register'
 
 const createMiddlewareStore = applyMiddleware(middleHello,middleLogin)(createStore);
 
@@ -20,5 +21,6 @@ render(<Provider store={store}>
         <Route path="/" component={Login}/>
         <Route path="/hello" component={Hello}/>
         <Route path="/login" component={Login}/>
+        <Route path="/register" component={Register}/>
     </Router>
 </Provider>, document.getElementById("content"));
