@@ -24,7 +24,7 @@ export default class Register extends Component {
     componentWillReceiveProps(nextProps) {
         if (nextProps.registerSuccess === true) {
             alert("register success");
-            browserHistory.push('/hello');
+            browserHistory.push('/login');
         } else if (nextProps.registerSuccess === false) {
             alert("register failed");
         }
