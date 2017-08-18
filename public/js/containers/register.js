@@ -1,4 +1,13 @@
 import Register from '../components/register'
 import {connect} from "react-redux";
 
-export default connect()(Register);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onRegister:(registerInfo)=>{
+            dispatch({type:'REGISTER',data:registerInfo})
+        },
+    }
+}
+
+
+export default connect(()=>{return {}}, mapDispatchToProps)(Register);
