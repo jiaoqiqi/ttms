@@ -1,24 +1,34 @@
 require('../../css/style.css')
-import React ,{Component} from 'react';
+import React, {Component} from 'react';
+import {browserHistory} from 'react-router';
+
 
 export default class Register extends Component {
 
-    register(){
+    register() {
         const userName = this.refs.userName.value;
         const userPassword = this.refs.userPassword.value;
         const confirmPassword = this.refs.confirmPassword.value;
 
-        if(!userName || !userPassword || !confirmPassword){
+        if (!userName || !userPassword || !confirmPassword) {
             alert("The name or password connot be empty");
-            return ;
+            return;
         }
-        if(userPassword != confirmPassword){
+        if (userPassword != confirmPassword) {
             alert("the confirm password is not correct");
-            return ;
+            return;
         }
-        this.props.onRegister({userName , userPassword , confirmPassword});
+        this.props.onRegister({userName, userPassword, confirmPassword});
     }
-    
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.registerSuccess === true) {
+            alert("register success");
+            browserHistory.push('/hello');
+        } else if (nextProps.registerSuccess === false) {
+            alert("register failed");
+        }
+    }
 
     render() {
         return <div className="container-fluid back">
@@ -41,7 +51,7 @@ export default class Register extends Component {
                     <input type="password" id="confirmPassword" ref="confirmPassword" className="form-control"/>
                 </div>
 
-                <button className='btn btn-primary  logButton' onClick={this.register.bind(this)} >注册</button>
+                <button className='btn btn-primary  logButton' onClick={this.register.bind(this)}>注册</button>
 
             </div>
         </div>;
