@@ -10,8 +10,12 @@ router.post("/registerInfo", (req, res) => {
     const password = req.body.userPassword;
 
     db.query(userSQL.registerSql, [name, password,name], (err,result) => {
+        console.log(result);
         if(err){
             return err;
+        }
+        if(result.message != "&Records: 1  Duplicates: 0  Warnings: 0"){
+            return ;
         }
         res.json({isSuccess: true});
     })
@@ -19,3 +23,4 @@ router.post("/registerInfo", (req, res) => {
 });
 
 module.exports = router;
+
