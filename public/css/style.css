@@ -37,7 +37,19 @@
 
 }
 
+table{
+    margin-left: 10%;
+}
 
+.col-th{
+    width: 200px;
+}
+
+.btn{
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 90%;
+}
 
 
 

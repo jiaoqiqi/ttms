@@ -8,13 +8,14 @@ import reducer from './reducers/index';
 import middleHello from './middlewares/hello';
 import middleLogin from './middlewares/login'
 import middleRegister from './middlewares/register'
+import middleUserList from './middlewares/userList'
 
 import Hello from './containers/hello';
 import Login from './containers/login';
 import Register from './containers/register';
-import UserList from './containers/userList'
+import UserList from './containers/userList';
 
-const createMiddlewareStore = applyMiddleware(middleHello, middleLogin, middleRegister)(createStore);
+const createMiddlewareStore = applyMiddleware(middleHello, middleLogin, middleRegister,middleUserList)(createStore);
 
 const store = createMiddlewareStore(reducer);
 
