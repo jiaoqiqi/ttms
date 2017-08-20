@@ -5,11 +5,11 @@ export default store => next => action => {
         request.post('/userInfo')
             .send(action.data)
             .end((err, res) => {
-                if(err) {
-
-                    next({type:"LOGIN_SUCCESS", isSuccess: false});
+                if (err) {
+                    return;
                 }
-                next({type:"LOGIN_SUCCESS", isSuccess: res.body.isSuccess});
+                console.log(res.body.logInfo);
+                next({type: "LOGIN_SUCCESS", isSuccess: res.body.isSuccess, logInfo: res.body.logInfo});
             });
     }
     else

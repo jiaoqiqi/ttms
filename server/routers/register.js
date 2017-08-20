@@ -10,7 +10,6 @@ router.post("/registerInfo", (req, res) => {
     const password = req.body.userPassword;
 
     db.query(userSQL.registerSql, [name, password,name], (err,result) => {
-        console.log(result);
         if(err){
             return err;
         }

@@ -7,9 +7,8 @@ let userSQL = require('../dbs/userSql')
 
 
 router.get('/userList', (req, res) => {
-    db.query(userSQL.queryAll, (err,result) =>{
-        console.log(result);
-        if(err){
+    db.query(userSQL.queryAll, (err, result) => {
+        if (err) {
             return err;
         }
         res.send(result);

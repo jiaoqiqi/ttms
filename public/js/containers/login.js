@@ -3,14 +3,15 @@ import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
     return {
-        logSuccess: state.login.logSuccess
+        logSuccess: state.login.logSuccess,
+        logInfo: state.login.logInfo
     }
 }
 
-const mapDispatchToProps = (dispatch)=>{
+const mapDispatchToProps = (dispatch) => {
     return {
-        onLogin:(userInfo)=>{
-            dispatch({type:'LOGIN',data:userInfo})
+        onLogin: (userInfo) => {
+            dispatch({type: 'LOGIN', data: userInfo})
         },
         onChangeLogSuccess: () => {
             dispatch({type: "CHANGE_LOG_SUCCESS"});
@@ -19,5 +20,5 @@ const mapDispatchToProps = (dispatch)=>{
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
 

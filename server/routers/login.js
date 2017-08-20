@@ -1,4 +1,3 @@
-
 const express = require('express');
 
 const router = express.Router();
@@ -8,22 +7,30 @@ let userSQL = require('../dbs/userSql')
 
 
 router.post("/userInfo", (req, res) => {
-    console.log(req.body);
     var name = req.body.userName;
     var password = req.body.userPassword;
 
     db.query(userSQL.logSql, [name, password], function (err, result) {
-        console.log(result)
         if (err) return err;
         else {
-            if (result.length == 0) {
-                res.json({isSuccess: false});
+            if (result.length === 0) {
+                db.query(userSQL.findUser, name, function (err, result) {
+                    console.log(result)
+                    if (err) return err;
+                    else if (result.length != 0) {
+                        res.json({isSuccess: false, logInfo: "password is not correct"});
+
+                    }
+                    else {
+                        res.json({isSuccess: false, logInfo: "user not exites"});
+
+                    }
+                })
             }
+
             else if (result[0].name === name && result[0].password === password) {
-                res.json({isSuccess: true});
-
+                res.json({isSuccess: true, logInfo: "success"});
             }
-
         }
     })
 
