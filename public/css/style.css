@@ -45,10 +45,22 @@ table{
     width: 200px;
 }
 
+.col{
+    width:200px;
+}
+
 .btn{
     height: 30px;
     margin-top: 10px;
 }
+
+.addButton{
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 90%;
+}
+
+
 
 
 

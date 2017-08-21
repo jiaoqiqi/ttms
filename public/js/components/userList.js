@@ -36,11 +36,9 @@ export default class UserList extends Component {
                         <td className="col">{user.name}</td>
                         <td className="col">{user.role}</td>
 
-                        <td className="col seat-col">
-                            <span className="glyphicon glyphicon-erase" data-toggle="modal"
-                                  onClick={this.initState.bind(this, user)} data-target="#myModal1"/>
+                        <td>
+                            <button className="btn btn-primary">删除</button>
                         </td>
-
                     </tr>
                     </tbody>
                 </table>
@@ -49,9 +47,6 @@ export default class UserList extends Component {
 
         return <div>
             <div className="add-div">
-                <button className="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                    添加用户
-                </button>
             </div>
             <hr/>
             <table>
@@ -67,5 +62,6 @@ export default class UserList extends Component {
             <div>{userList}</div>
 
         </div>
+
     }
 }

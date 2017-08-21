@@ -14,6 +14,7 @@ import Hello from './containers/hello';
 import Login from './containers/login';
 import Register from './containers/register';
 import UserList from './containers/userList';
+import UpdateUser from './containers/updateUser'
 
 const createMiddlewareStore = applyMiddleware(middleHello, middleLogin, middleRegister,middleUserList)(createStore);
 
@@ -21,10 +22,11 @@ const store = createMiddlewareStore(reducer);
 
 render(<Provider store={store}>
     <Router history={browserHistory}>
-        <Route path="/" component={Login}/>
+        <Route path="/" component={UserList}/>
         <Route path="/hello" component={Hello}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/userList" component={UserList}/>
+        <Route path="/updateUser" component={UpdateUser}/>
     </Router>
 </Provider>, document.getElementById("content"));
