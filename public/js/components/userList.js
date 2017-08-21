@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {browserHistory} from 'react-router';
+
 
 export default class UserList extends Component {
     constructor(props) {
@@ -24,6 +26,21 @@ export default class UserList extends Component {
         this.props.OnDisplayUsers();
     }
 
+    deleteUser(id) {
+        this.props.onDeleteUser({id});
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.deleteFlag === true) {
+            alert("删除成功！");
+            window.location.reload(); //reload the page auto;
+
+        } else if (nextProps.deleteFlag === false) {
+            alert("删除失败！");
+            this.props.OnDisplayUsers();
+        }
+    }
+
     render() {
         const userList = this.props.user.map((user, i) => {
 
@@ -37,7 +54,9 @@ export default class UserList extends Component {
                         <td className="col">{user.role}</td>
 
                         <td>
-                            <button className="btn btn-primary">删除</button>
+                            <button className="btn btn-primary "
+                                    onClick={this.deleteUser.bind(this, user.id)}>
+                                删除</button>
                         </td>
                     </tr>
                     </tbody>
