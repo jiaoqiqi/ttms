@@ -18,5 +18,18 @@ export default (state = {user: []}, action) => {
         return Object.assign({}, state);
     }
 
+    if (action.type === 'UPDATE_USER_FLAG') {
+
+        switch (action.data) {
+            case 'success':
+                state.updateFlag = true;
+                break;
+            default:
+                state.updateFlag = false;
+        }
+
+        return Object.assign({}, state);
+    }
+
     return state;
 }

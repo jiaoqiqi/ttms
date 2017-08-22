@@ -10,14 +10,14 @@ import middleLogin from './middlewares/login'
 import middleRegister from './middlewares/register'
 import middleUserList from './middlewares/userList';
 import middleDeleteUser from './middlewares/deleteUser'
+import middleMOdifyUser from './middlewares/modifyUser'
 
 import Hello from './containers/hello';
 import Login from './containers/login';
 import Register from './containers/register';
 import UserList from './containers/userList';
-import UpdateUser from './containers/updateUser'
 
-const createMiddlewareStore = applyMiddleware(middleHello, middleLogin, middleRegister,middleUserList,middleDeleteUser)(createStore);
+const createMiddlewareStore = applyMiddleware(middleHello, middleLogin, middleRegister,middleUserList,middleDeleteUser,middleMOdifyUser)(createStore);
 
 const store = createMiddlewareStore(reducer);
 
@@ -28,6 +28,5 @@ render(<Provider store={store}>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/userList" component={UserList}/>
-        <Route path="/updateUser" component={UpdateUser}/>
     </Router>
 </Provider>, document.getElementById("content"));

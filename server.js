@@ -9,6 +9,7 @@ const login = require('./server/routers/login')
 const register = require('./server/routers/register')
 const userList = require('./server/routers/userList')
 const deleteUser = require('./server/routers/deleteUser')
+const modifyUser = require('./server/routers/modifyUser')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,6 +21,7 @@ app.use("/",login)
 app.use("/",register)
 app.use("/",userList)
 app.use("/",deleteUser)
+app.use("/",modifyUser)
 
 
 app.get("*", function (req, res) {

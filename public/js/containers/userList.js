@@ -4,7 +4,9 @@ import {connect} from "react-redux";
 const mapStateToProps = (state) => {
     return{
         user:state.userList.user,
-        deleteFlag:state.userList.deleteFlag
+        deleteFlag:state.userList.deleteFlag,
+        updateFlag:state.userList.updateFlag,
+
     }
 }
 
@@ -16,6 +18,9 @@ const mapDispatchTOProps = (dispatch) => {
         onDeleteUser: (id) => {
             dispatch({type: "DELETE_USER", id});
         },
+        onModifyUser: (user) => {
+            dispatch({type: "UPDATE_USER", user});
+        }
     }
 }
 

@@ -13,14 +13,14 @@ export default class UserList extends Component {
         }
     }
 
-    initState(user) {
-        this.setState({
-            id: user.id,
-            name: user.name,
-            role: user.role
-        })
-
-    }
+    // initState(user) {
+    //     this.setState({
+    //         id: user.id,
+    //         name: user.name,
+    //         role: user.role
+    //     })
+    //
+    // }
 
     componentWillMount() {
         this.props.OnDisplayUsers();
@@ -30,6 +30,26 @@ export default class UserList extends Component {
         this.props.onDeleteUser({id});
     }
 
+    modifyUser() {
+        this.props.onModifyUser({
+            name: this.state.name,
+            role: this.state.role
+        });
+    }
+
+    onChangeName() {
+        this.setState({
+            other: this.refs.name.value
+        });
+    }
+
+    onChangeRole() {
+        this.setState({
+            other: this.refs.role.value
+        });
+    }
+
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.deleteFlag === true) {
             alert("删除成功！");
@@ -38,6 +58,15 @@ export default class UserList extends Component {
         } else if (nextProps.deleteFlag === false) {
             alert("删除失败！");
             this.props.OnDisplayUsers();
+        }
+
+        if (nextProps.updateFlag === true) {
+            alert("修改成功！");
+            window.location.reload();
+        } else if (nextProps.updateFlag === false) {
+            alert("修改失败！");
+            this.props.OnDisplayUsers();
+
         }
     }
 
@@ -56,7 +85,14 @@ export default class UserList extends Component {
                         <td>
                             <button className="btn btn-primary "
                                     onClick={this.deleteUser.bind(this, user.id)}>
-                                删除</button>
+                                删除
+                            </button>
+                        </td>
+                        <td>
+                            <button className="btn btn-primary "
+                                    data-toggle="modal" data-target="#myModal">
+                                修改
+                            </button>
                         </td>
                     </tr>
                     </tbody>
@@ -64,10 +100,7 @@ export default class UserList extends Component {
             </div>
         });
 
-        return <div>
-            <div className="add-div">
-            </div>
-            <hr/>
+        return <div className="margin">
             <table>
                 <tbody>
                 <tr>
@@ -79,6 +112,33 @@ export default class UserList extends Component {
             </table>
 
             <div>{userList}</div>
+
+            <div className="modal fade" id="myModal" tabIndex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <button type="button" className="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                            <h4 className="modal-title" id="myModalLabel">用户信息</h4>
+                        </div>
+                        <div className="modal-body">
+                            用户名：<input type="text" ref="name" value={this.state.name} onChange={this.onChangeName.bind(this)}/>
+                        </div>
+                        <div className="modal-body">
+                            权限：<input type="text" ref="role" value={this.state.role} onChange={this.onChangeRole.bind(this)}/>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-default"
+                                    data-dismiss="modal">关闭</button>
+                            <button type="button" className="btn btn-primary" onClick={this.modifyUser.bind(this)}>
+                                提交更改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
         </div>
 
