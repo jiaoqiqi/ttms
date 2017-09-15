@@ -15,7 +15,6 @@ router.post("/userInfo", (req, res) => {
         else {
             if (result.length === 0) {
                 db.query(userSQL.findUser, name, function (err, result) {
-                    console.log(result)
                     if (err) return err;
                     else if (result.length != 0) {
                         res.json({isSuccess: false, logInfo: "password is not correct"});

@@ -2,7 +2,7 @@ let UserSQL = {
 
     insert: 'insert  user(id,name,password,role) values (null,?,?,?)',
     queryAll: 'select * from user',
-    update: 'update user set name=?,password=?,roel=?,note=? where id = ?',
+    update: 'update user set name=?,role=? where id = ?',
     delete: 'delete from user where id=?',
     queryById: 'select * from user where id=?',
     logSql: "select * from user where name = ? and password = ?",
