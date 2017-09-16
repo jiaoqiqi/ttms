@@ -10,6 +10,7 @@ const register = require('./server/routers/register')
 const userList = require('./server/routers/userList')
 const deleteUser = require('./server/routers/deleteUser')
 const modifyUser = require('./server/routers/modifyUser')
+const movieList = require('./server/routers/movieList')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -22,6 +23,7 @@ app.use("/",register)
 app.use("/",userList)
 app.use("/",deleteUser)
 app.use("/",modifyUser)
+app.use("/",movieList)
 
 
 app.get("*", function (req, res) {

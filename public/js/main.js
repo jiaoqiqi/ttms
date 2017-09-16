@@ -11,22 +11,26 @@ import middleRegister from './middlewares/register'
 import middleUserList from './middlewares/userList';
 import middleDeleteUser from './middlewares/deleteUser'
 import middleMOdifyUser from './middlewares/modifyUser'
+import middleMovieList from './middlewares/movieList'
 
 import Hello from './containers/hello';
 import Login from './containers/login';
 import Register from './containers/register';
 import UserList from './containers/userList';
+import MovieList from './containers/movieList'
 
-const createMiddlewareStore = applyMiddleware(middleHello, middleLogin, middleRegister,middleUserList,middleDeleteUser,middleMOdifyUser)(createStore);
+const createMiddlewareStore = applyMiddleware(middleHello, middleLogin, middleRegister,middleUserList,
+    middleDeleteUser,middleMOdifyUser,middleMovieList)(createStore);
 
 const store = createMiddlewareStore(reducer);
 
 render(<Provider store={store}>
     <Router history={browserHistory}>
-        <Route path="/" component={UserList}/>
+        <Route path="/" component={MovieList}/>
         <Route path="/hello" component={Hello}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>
         <Route path="/userList" component={UserList}/>
+        <Route path="/movieList" component={MovieList}/>
     </Router>
 </Provider>, document.getElementById("content"));

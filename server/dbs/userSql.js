@@ -10,7 +10,9 @@ let UserSQL = {
     "from dual where not exists(select name from user where name = ?)",
     //判断输入的名字是否存在，存在则不插入
     findName: "select name from user where name = ?",
-    findUser: "select * from user where name = ? "
+    findUser: "select * from user where name = ? ",
+
+    selectMovies:"select * from movies"
 };
 
 module.exports = UserSQL;

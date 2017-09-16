@@ -68,6 +68,7 @@ export default class UserList extends Component {
     }
 
     render() {
+        console.log(this.props.user)
         const userList = this.props.user.map((user, id) => {
 
             return <div key={id}>
