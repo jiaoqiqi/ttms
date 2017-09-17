@@ -15,12 +15,29 @@ export default class MovieList extends Component {
         }
     }
 
+
     componentWillMount() {
         this.props.OnDisplayMovies();
     }
 
+    deleteMovie(movieId){
+        this.props.OnDeleteMovie(movieId);
+    }
+
+
+
+    componentWillReceiveProps(nextProps){
+        if (nextProps.deleteFlag === true) {
+            alert("删除成功！");
+            window.location.reload();
+
+        } else if (nextProps.deleteFlag === false) {
+            alert("删除失败！");
+            window.location.reload();
+        }
+    }
+
     render() {
-        console.log(this.props.movie);
         const movieList = this.props.movie.map((movie, movieId) => {
 
             return <div key={movieId}>
@@ -37,7 +54,7 @@ export default class MovieList extends Component {
 
                         <td>
                             <button className="btn btn-primary "
-                            >
+                            onClick={this.deleteMovie.bind(this,movie.movieId)}>
                                 删除
                             </button>
                         </td>
@@ -70,35 +87,44 @@ export default class MovieList extends Component {
 
             <div>{movieList}</div>
 
-            {/*<div className="modal fade" id="myModal" tabIndex="-1" role="dialog"*/}
-            {/*aria-labelledby="myModalLabel" aria-hidden="true">*/}
-            {/*<div className="modal-dialog">*/}
-            {/*<div className="modal-content">*/}
-            {/*<div className="modal-header">*/}
-            {/*<button type="button" className="close" data-dismiss="modal"*/}
-            {/*aria-hidden="true" >&times;</button>*/}
-            {/*<h4 className="modal-title" id="myModalLabel">用户信息</h4>*/}
-            {/*</div>*/}
+            <div className="modal fade" id="myModal" tabIndex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <button type="button" className="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                            <h4 className="modal-title" id="myModalLabel">y影片信息</h4>
+                        </div>
 
-            {/*<div className="modal-body">*/}
-            {/*用户名：<input type="text" ref="name"  onChange={this.onChangeName.bind(this)}/>*/}
-            {/*</div>*/}
+                        <div className="modal-body">
+                            电影名称：<input type="text" ref="name" />
+                        </div>
 
-            {/*<div className="modal-body">*/}
-            {/*权限：<input type="text" ref="role"  onChange={this.onChangeRole.bind(this)}/>*/}
-            {/*</div>*/}
+                        <div className="modal-body">
+                            电影主演：<input type="text" ref="role" />
+                        </div>
 
-            {/*<div className="modal-footer">*/}
-            {/*<button type="button" className="btn btn-default"*/}
-            {/*data-dismiss="modal">关闭</button>*/}
-            {/*<button type="button" className="btn btn-primary" onClick={this.modifyUser.bind(this)}>*/}
-            {/*提交更改</button>*/}
-            {/*</div>*/}
+                        <div className="modal-body">
+                            电影导演：<input type="text" ref="role" />
+                        </div>
 
-            {/*</div>*/}
-            {/*</div>*/}
-            {/*</div>*/}
+                        <div className="modal-body">
+                            电影市时长：<input type="text" ref="role" />
+                        </div>
 
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-default"
+                                    data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" className="btn btn-primary" >
+                                提交更改
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     }
 }
