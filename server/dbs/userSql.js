@@ -12,7 +12,8 @@ let UserSQL = {
     findName: "select name from user where name = ?",
     findUser: "select * from user where name = ? ",
 
-    selectMovies:"select * from movies"
+    selectMovies:"select * from movies",
+    deleteMovie :"delete from movies where movieId = ?"
 };
 
 module.exports = UserSQL;

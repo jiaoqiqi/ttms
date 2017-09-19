@@ -8,7 +8,7 @@ export default class MovieList extends Component {
                 movieId: null,
                 movieName: null,
                 movieLead: null,
-                movieActor: null,
+                movieAct: null,
                 movieDuration: null,
                 movieInfo: null
             }
@@ -27,13 +27,13 @@ export default class MovieList extends Component {
 
 
     componentWillReceiveProps(nextProps){
-        if (nextProps.deleteFlag === true) {
+        if (nextProps.deleteMovieFlag === true) {
             alert("删除成功！");
             window.location.reload();
 
-        } else if (nextProps.deleteFlag === false) {
+        } else if (nextProps.deleteMovieFlag === false) {
             alert("删除失败！");
-            window.location.reload();
+            // window.location.reload();
         }
     }
 
@@ -48,13 +48,13 @@ export default class MovieList extends Component {
                         <td className="col">{movie.movieId}</td>
                         <td className="col">{movie.movieName}</td>
                         <td className="col">{movie.movieLead}</td>
-                        <td className="col">{movie.movieActor}</td>
+                        <td className="col">{movie.movieAct}</td>
                         <td className="col">{movie.movieDuration}</td>
                         <td className="col">{movie.movieInfo}</td>
 
                         <td>
                             <button className="btn btn-primary "
-                            onClick={this.deleteMovie.bind(this,movie.movieId)}>
+                                    onClick={this.deleteMovie.bind(this, movie.movieId)}>
                                 删除
                             </button>
                         </td>
@@ -94,7 +94,7 @@ export default class MovieList extends Component {
                         <div className="modal-header">
                             <button type="button" className="close" data-dismiss="modal"
                                     aria-hidden="true">&times;</button>
-                            <h4 className="modal-title" id="myModalLabel">y影片信息</h4>
+                            <h4 className="modal-title" id="myModalLabel">影片信息</h4>
                         </div>
 
                         <div className="modal-body">
@@ -102,15 +102,19 @@ export default class MovieList extends Component {
                         </div>
 
                         <div className="modal-body">
-                            电影主演：<input type="text" ref="role" />
+                            电影主演：<input type="text" ref="lead" />
                         </div>
 
                         <div className="modal-body">
-                            电影导演：<input type="text" ref="role" />
+                            电影导演：<input type="text" ref="actor" />
                         </div>
 
                         <div className="modal-body">
-                            电影市时长：<input type="text" ref="role" />
+                            电影时长：<input type="text" ref="duration" />
+                        </div>
+
+                        <div className="modal-body">
+                            电影简介：<input type="text" ref="info" />
                         </div>
 
                         <div className="modal-footer">

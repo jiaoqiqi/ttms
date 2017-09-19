@@ -8,10 +8,10 @@ export default (state = {movie: []}, action) => {
     if(action.type === "DELETE_MOVIE_FLAG"){
         switch (action.data) {
             case 'success':
-                state.deleteFlag = true;
+                state.deleteMovieFlag = true;
                 break;
             default:
-                state.deleteFlag = false;
+                state.deleteMovieFlag = false;
         }
 
         return Object.assign({}, state);

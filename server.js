@@ -11,6 +11,7 @@ const userList = require('./server/routers/userList')
 const deleteUser = require('./server/routers/deleteUser')
 const modifyUser = require('./server/routers/modifyUser')
 const movieList = require('./server/routers/movieList')
+const deleteMovie = require('./server/routers/deleteMovie')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -24,6 +25,7 @@ app.use("/",userList)
 app.use("/",deleteUser)
 app.use("/",modifyUser)
 app.use("/",movieList)
+app.use("/",deleteMovie)
 
 
 app.get("*", function (req, res) {
