@@ -2,7 +2,7 @@ import request from "superagent";
 
 export default store => next => action => {
     if (action.type === "DELETE_MOVIE") {
-        console.log(action.movieId)
+        // console.log(action.movieId)
         request.post('/delMovie')
             .send({"movieId":action.movieId})
             .end((err, res) => {
