@@ -17,5 +17,17 @@ export default (state = {movie: []}, action) => {
         return Object.assign({}, state);
     }
 
+    if(action.type === "MODIFY_MOVIE_FLAG"){
+        switch (action.data) {
+            case 'success':
+                state.modifyMovieFlag = true;
+                break;
+            default:
+                state.modifyMovieFlag = false;
+        }
+
+        return Object.assign({}, state);
+    }
+
     return state;
 }

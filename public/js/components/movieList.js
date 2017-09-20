@@ -20,17 +20,74 @@ export default class MovieList extends Component {
         this.props.OnDisplayMovies();
     }
 
-    deleteMovie(movieId){
+    deleteMovie(movieId) {
         this.props.OnDeleteMovie(movieId);
     }
 
-    componentWillReceiveProps(nextProps){
+    modifyMovie() {
+        this.props.OnModifyMovie({
+            movieId: this.state.movieId,
+            movieName: this.state.movieName,
+            movieLead: this.state.movieLead,
+            movieAct: this.state.movieAct,
+            movieDuration: this.state.movieDuration,
+            movieInfo: this.state.movieInfo
+        })
+
+    }
+
+    onChangeMovieName() {
+        this.setState({
+            movieName: this.refs.movieName.value
+        });
+    }
+
+    onChangeMovieLead() {
+        this.setState({
+            movieLead: this.refs.movieLead.value
+        })
+    }
+
+    onChangeMovieAct() {
+        this.setState({
+            movieAct: this.refs.movieAct.value
+        })
+    }
+
+    onChangeMovieDuration() {
+        this.setState({
+            movieDuration: this.refs.movieDuration.value
+        })
+    }
+
+    onChangeMovieInfo() {
+        this.setState({
+            movieInfo: this.refs.movieInfo.value
+        })
+    }
+
+    onChageMovieId(movieId) {
+        this.setState({
+            movieId: movieId
+        })
+    }
+
+    componentWillReceiveProps(nextProps) {
         if (nextProps.deleteMovieFlag === true) {
             alert("删除成功！");
             window.location.reload();
 
         } else if (nextProps.deleteMovieFlag === false) {
             alert("删除失败！");
+            window.location.reload();
+        }
+
+        if (nextProps.modifyMovieFlag === true) {
+            alert("修改成功！");
+            window.location.reload();
+
+        } else if (nextProps.modifyMovieFlag === false) {
+            alert("修改失败！");
             window.location.reload();
         }
     }
@@ -59,7 +116,7 @@ export default class MovieList extends Component {
                         <td>
                             <button className="btn btn-primary "
                                     data-toggle="modal" data-target="#myModal"
-                            >
+                                    onClick={this.onChageMovieId.bind(this, movie.movieId)}>
                                 修改
                             </button>
                         </td>
@@ -96,30 +153,35 @@ export default class MovieList extends Component {
                         </div>
 
                         <div className="modal-body">
-                            电影名称：<input type="text" ref="name" />
+                            电影名称：<input type="text" ref="movieName"
+                                        onChange={this.onChangeMovieName.bind(this)}/>
                         </div>
 
                         <div className="modal-body">
-                            电影主演：<input type="text" ref="lead" />
+                            电影主演：<input type="text" ref="movieLead"
+                                        onChange={this.onChangeMovieLead.bind(this)}/>
                         </div>
 
                         <div className="modal-body">
-                            电影导演：<input type="text" ref="actor" />
+                            电影导演：<input type="text" ref="movieAct"
+                                        onChange={this.onChangeMovieAct.bind(this)}/>
                         </div>
 
                         <div className="modal-body">
-                            电影时长：<input type="text" ref="duration" />
+                            电影时长：<input type="text" ref="movieDuration"
+                                        onChange={this.onChangeMovieDuration.bind(this)}/>
                         </div>
 
                         <div className="modal-body">
-                            电影简介：<input type="text" ref="info" />
+                            电影简介：<input type="text" ref="movieInfo"
+                                        onChange={this.onChangeMovieInfo.bind(this)}/>
                         </div>
 
                         <div className="modal-footer">
                             <button type="button" className="btn btn-default"
                                     data-dismiss="modal">关闭
                             </button>
-                            <button type="button" className="btn btn-primary" >
+                            <button type="button" className="btn btn-primary" onClick={this.modifyMovie.bind(this)}>
                                 提交更改
                             </button>
                         </div>

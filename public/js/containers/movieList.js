@@ -4,7 +4,8 @@ import MovieList from "../components/movieList";
 const mapStateToProps = (state) => {
     return{
         movie:state.movieList.movie,
-        deleteMovieFlag:state.movieList.deleteMovieFlag
+        deleteMovieFlag:state.movieList.deleteMovieFlag,
+        modifyMovieFlag : state.movieList.modifyMovieFlag
     }
 }
 
@@ -15,6 +16,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         OnDeleteMovie : (movieId) => {
             dispatch({type:"DELETE_MOVIE",movieId})
+        },
+        OnModifyMovie : (movie) => {
+            dispatch({type:"MODIFY_MOVIE",movie})
         }
     }
 }

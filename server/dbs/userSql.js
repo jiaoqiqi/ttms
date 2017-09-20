@@ -13,7 +13,10 @@ let UserSQL = {
     findUser: "select * from user where name = ? ",
 
     selectMovies:"select * from movies",
-    deleteMovie :"delete from movies where movieId = ?"
+    deleteMovie :"delete from movies where movieId = ?",
+    modifyMovie :"update movies set movieName=?,movieLead=?,movieAct=?," +
+    "movieDuration=?,movieInfo=?" +
+    " where  movieId= ?"
 };
 
 module.exports = UserSQL;
