@@ -28,7 +28,7 @@ const store = createMiddlewareStore(reducer);
 
 render(<Provider store={store}>
     <Router history={browserHistory}>
-        <Route path="/" component={MovieList}/>
+        <Route path="/" component={Login}/>
         <Route path="/hello" component={Hello}/>
         <Route path="/login" component={Login}/>
         <Route path="/register" component={Register}/>

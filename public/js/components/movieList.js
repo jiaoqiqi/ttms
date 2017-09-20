@@ -31,7 +31,7 @@ export default class MovieList extends Component {
 
         } else if (nextProps.deleteMovieFlag === false) {
             alert("删除失败！");
-            // window.location.reload();
+            window.location.reload();
         }
     }
 
