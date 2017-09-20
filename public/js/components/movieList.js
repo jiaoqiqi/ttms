@@ -24,8 +24,6 @@ export default class MovieList extends Component {
         this.props.OnDeleteMovie(movieId);
     }
 
-
-
     componentWillReceiveProps(nextProps){
         if (nextProps.deleteMovieFlag === true) {
             alert("删除成功！");

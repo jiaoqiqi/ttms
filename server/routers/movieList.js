@@ -6,7 +6,7 @@ let db = require('../dbs/connection')
 let userSQL = require('../dbs/userSql')
 
 
-router.get('/movieList', (req, res) => {
+router.get('/movies', (req, res) => {
     db.query(userSQL.selectMovies, (err, result) => {
         if (err) {
             return err;
