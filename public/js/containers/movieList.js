@@ -5,7 +5,8 @@ const mapStateToProps = (state) => {
     return{
         movie:state.movieList.movie,
         deleteMovieFlag:state.movieList.deleteMovieFlag,
-        modifyMovieFlag : state.movieList.modifyMovieFlag
+        modifyMovieFlag : state.movieList.modifyMovieFlag,
+        addMovieFlag : state.movieList.addMovieFlag
     }
 }
 
@@ -19,6 +20,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         OnModifyMovie : (movie) => {
             dispatch({type:"MODIFY_MOVIE",movie})
+        },
+        OnAddMovie : (movie) => {
+            dispatch({type:"ADD_MOVIE",movie})
         }
     }
 }

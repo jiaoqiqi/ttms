@@ -16,7 +16,12 @@ let UserSQL = {
     deleteMovie :"delete from movies where movieId = ?",
     modifyMovie :"update movies set movieName=?,movieLead=?,movieAct=?," +
     "movieDuration=?,movieInfo=?" +
-    " where  movieId= ?"
+    " where  movieId= ?",
+    // addMovie: "insert into movies (movieId,movieName,movieLead,movieAct," +
+    // "movieDuration,movieInfo) " +
+    // "select null,?,?,?,?,? from dual where not exists(select movieName " +
+    // "from movies where movieName=?)"
+    addMovie: "insert into movies vlaues （null,?,?,?,?,? ）"
 };
 
 module.exports = UserSQL;

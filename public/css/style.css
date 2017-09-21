@@ -87,4 +87,11 @@ h2{
     text-align: center;
 }
 
+.kuang {
+    /*background:transparent;*/
+    border: 1px solid black;
+    border-radius: 25px;
+    outline: medium /*输入时去掉外边框的方法*/
+}
+
 

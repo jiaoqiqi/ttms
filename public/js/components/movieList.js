@@ -72,6 +72,23 @@ export default class MovieList extends Component {
         })
     }
 
+    addMovie(){
+        const movieName = this.refs.movieName.value;
+        const movieLead = this.refs.movieLead.value;
+        const movieAct = this.refs.movieAct.value;
+        const movieDuration = this.refs.movieDuration.value;
+        const movieInfo = this.refs.movieInfo.value;
+
+
+        if (!movieName || !movieLead || !movieAct || !movieDuration || !movieInfo) {
+            alert("The movie info connot be empty");
+            return;
+        }
+
+        this.props.OnAddMovie({movieName,movieLead,movieAct,movieDuration,movieInfo});
+
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.deleteMovieFlag === true) {
             alert("删除成功！");
@@ -90,6 +107,15 @@ export default class MovieList extends Component {
             alert("修改失败！");
             window.location.reload();
         }
+
+        if (nextProps.addMovieFlag === true) {
+            alert("添加成功！");
+            window.location.reload();
+
+        } else if (nextProps.addMovieFlag === false) {
+            alert("添加失败！");
+            window.location.reload();
+        }
     }
 
     render() {
@@ -97,7 +123,7 @@ export default class MovieList extends Component {
 
             return <div key={movieId}>
                 <hr/>
-                <table>
+                <table className="table-hover">
                     <tbody>
                     <tr>
                         <td className="movieList">{movie.movieId}</td>
@@ -126,12 +152,13 @@ export default class MovieList extends Component {
             </div>
         });
 
-        return <div className="margin">
+        return <div className="margin" >
             <div>
                 <h2>影片信息管理</h2>
             </div>
             <div>
-                <button className="btn btn-primary addButton">添加</button>
+                <button className="btn btn-primary addButton"
+                        data-toggle="modal" data-target="#addMovie">添加</button>
             </div>
             <table>
                 <tbody>
@@ -159,27 +186,27 @@ export default class MovieList extends Component {
                         </div>
 
                         <div className="modal-body">
-                            电影名称：<input type="text" ref="movieName"
+                            电影名称：<input type="text" ref="addName" className="kuang"
                                         onChange={this.onChangeMovieName.bind(this)}/>
                         </div>
 
                         <div className="modal-body">
-                            电影主演：<input type="text" ref="movieLead"
+                            电影主演：<input type="text" ref="movieLead" className="kuang"
                                         onChange={this.onChangeMovieLead.bind(this)}/>
                         </div>
 
                         <div className="modal-body">
-                            电影导演：<input type="text" ref="movieAct"
+                            电影导演：<input type="text" ref="movieAct" className="kuang"
                                         onChange={this.onChangeMovieAct.bind(this)}/>
                         </div>
 
                         <div className="modal-body">
-                            电影时长：<input type="text" ref="movieDuration"
+                            电影时长：<input type="text" ref="movieDuration" className="kuang"
                                         onChange={this.onChangeMovieDuration.bind(this)}/>
                         </div>
 
                         <div className="modal-body">
-                            电影简介：<input type="text" ref="movieInfo"
+                            电影简介：<input type="text" ref="movieInfo" className="kuang"
                                         onChange={this.onChangeMovieInfo.bind(this)}/>
                         </div>
 
@@ -189,6 +216,51 @@ export default class MovieList extends Component {
                             </button>
                             <button type="button" className="btn btn-primary" onClick={this.modifyMovie.bind(this)}>
                                 提交更改
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div className="modal fade" id="addMovie" tabIndex="-1" role="dialog"
+                 aria-labelledby="myModalLabel" aria-hidden="true">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <button type="button" className="close" data-dismiss="modal"
+                                    aria-hidden="true">&times;</button>
+                            <h4 className="modal-title" id="myModalLabel">添加影片信息</h4>
+                        </div>
+
+                        <div className="modal-body">
+                            电影名称：<input type="text" ref="movieName" className="kuang"/>
+                        </div>
+
+                        <div className="modal-body">
+                            电影主演：<input type="text" ref="movieLead" className="kuang"/>
+                        </div>
+
+                        <div className="modal-body">
+                            电影导演：<input type="text" ref="movieAct" className="kuang"/>
+                        </div>
+
+                        <div className="modal-body">
+                            电影时长：<input type="text" ref="movieDuration" className="kuang"/>
+                        </div>
+
+                        <div className="modal-body">
+                            电影简介：<input type="text" ref="movieInfo" className="kuang"/>
+                        </div>
+
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-default"
+                                    data-dismiss="modal">关闭
+                            </button>
+                            <button type="button" className="btn btn-primary" onClick={this.addMovie.bind(this)}>
+                                确认添加
                             </button>
                         </div>
 
