@@ -43,6 +43,7 @@ table{
 
 .col-th{
     width: 200px;
+    margin-top: 50px;
 }
 
 .col{
@@ -58,6 +59,7 @@ table{
     height: 30px;
     margin-top: 10px;
     margin-left: 90%;
+    margin-bottom: 3%;
 }
 
 .modal-body{
@@ -68,6 +70,21 @@ table{
     margin-top: 10px;
 }
 
+h2{
+    text-align: center;
+    height: 10%;
+    margin-bottom: 3%;
+}
 
+.movieList{
+    margin-top: 0.8%;
+    width: 150px;
+    text-align: center;
+}
+
+.movieLead{
+    width: 200px;
+    text-align: center;
+}
 
 

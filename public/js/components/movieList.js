@@ -100,12 +100,12 @@ export default class MovieList extends Component {
                 <table>
                     <tbody>
                     <tr>
-                        <td className="col">{movie.movieId}</td>
-                        <td className="col">{movie.movieName}</td>
-                        <td className="col">{movie.movieLead}</td>
-                        <td className="col">{movie.movieAct}</td>
-                        <td className="col">{movie.movieDuration}</td>
-                        <td className="col">{movie.movieInfo}</td>
+                        <td className="movieList">{movie.movieId}</td>
+                        <td className="movieList">{movie.movieName}</td>
+                        <td className="movieLead">{movie.movieLead}</td>
+                        <td className="movieList">{movie.movieAct}</td>
+                        <td className="movieList">{movie.movieDuration}</td>
+                        <td className="movieList">{movie.movieInfo}</td>
 
                         <td>
                             <button className="btn btn-primary "
@@ -127,15 +127,21 @@ export default class MovieList extends Component {
         });
 
         return <div className="margin">
+            <div>
+                <h2>影片信息管理</h2>
+            </div>
+            <div>
+                <button className="btn btn-primary addButton">添加</button>
+            </div>
             <table>
                 <tbody>
                 <tr>
-                    <th className="col-th">编号</th>
-                    <th className="col-th">电影名称</th>
-                    <th className="col-th">主演</th>
-                    <th className="col-th">导演</th>
-                    <th className="col-th">时长</th>
-                    <th className="col-th">简介</th>
+                    <th className="movieList">编号</th>
+                    <th className="movieList">电影名称</th>
+                    <th className="movieLead">主演</th>
+                    <th className="movieList">导演</th>
+                    <th className="movieList">时长</th>
+                    <th className="movieList">简介</th>
                 </tr>
                 </tbody>
             </table>
