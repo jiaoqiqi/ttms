@@ -21,7 +21,8 @@ let UserSQL = {
     // "movieDuration,movieInfo) " +
     // "select null,?,?,?,?,? from dual where not exists(select movieName " +
     // "from movies where movieName=?)"
-    addMovie: "insert into movies vlaues （null,?,?,?,?,? ）"
+    addMovie: "insert into movies(movieId,movieName,movieLead," +
+    " movieAct,movieDuration,movieInfo) vlaues （null,?,?,?,?,? ）"
 };
 
 module.exports = UserSQL;

@@ -6,7 +6,7 @@ const mapStateToProps = (state) => {
         movie:state.movieList.movie,
         deleteMovieFlag:state.movieList.deleteMovieFlag,
         modifyMovieFlag : state.movieList.modifyMovieFlag,
-        addMovieFlag : state.movieList.addMovieFlag
+        addSuccess : state.movieList.addSuccess
     }
 }
 

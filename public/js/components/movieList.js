@@ -108,13 +108,13 @@ export default class MovieList extends Component {
             window.location.reload();
         }
 
-        if (nextProps.addMovieFlag === true) {
+        if (nextProps.addSuccess === true) {
             alert("添加成功！");
             window.location.reload();
 
-        } else if (nextProps.addMovieFlag === false) {
+        } else if (nextProps.addSuccess === false) {
             alert("添加失败！");
-            window.location.reload();
+            // window.location.reload();
         }
     }
 

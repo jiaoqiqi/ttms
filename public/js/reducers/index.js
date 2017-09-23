@@ -4,11 +4,13 @@ import login from './login';
 import register from './register';
 import userList from './userList'
 import movieList from './movieList'
+import addMovie from './addMovie'
 
 export default combineReducers({
     hello,
     login,
     register,
     userList,
-    movieList
+    movieList,
+    addMovie
 });

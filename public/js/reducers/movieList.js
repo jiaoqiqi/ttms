@@ -1,4 +1,4 @@
-export default (state = {movie: []}, action) => {
+export default (state = {movie: [],addSuccess:""}, action,) => {
     if (action.type === 'SHOW_MOVIES') {
         state.movie = action.data;
 
@@ -24,18 +24,6 @@ export default (state = {movie: []}, action) => {
                 break;
             default:
                 state.modifyMovieFlag = false;
-        }
-
-        return Object.assign({}, state);
-    }
-
-    if(action.type === "ADD_MOVIE_FLAG"){
-        switch (action.data) {
-            case 'success':
-                state.addMovieFlag = true;
-                break;
-            default:
-                state.addMovieFlag = false;
         }
 
         return Object.assign({}, state);
