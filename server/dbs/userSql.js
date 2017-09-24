@@ -17,12 +17,7 @@ let UserSQL = {
     modifyMovie :"update movies set movieName=?,movieLead=?,movieAct=?," +
     "movieDuration=?,movieInfo=?" +
     " where  movieId= ?",
-    // addMovie: "insert into movies (movieId,movieName,movieLead,movieAct," +
-    // "movieDuration,movieInfo) " +
-    // "select null,?,?,?,?,? from dual where not exists(select movieName " +
-    // "from movies where movieName=?)"
-    addMovie: "insert into movies(movieId,movieName,movieLead," +
-    " movieAct,movieDuration,movieInfo) vlaues （null,?,?,?,?,? ）"
+    addMovie: 'insert into `movies` set ?'
 };
 
 module.exports = UserSQL;

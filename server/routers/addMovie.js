@@ -7,13 +7,12 @@ let userSQL = require('../dbs/userSql')
 
 router.post("/addmovie", (req, res) => {
     // console.log(req.body);
-    // console.log(res.body.isSuccess);
-    db.query(userSQL.addMovie, [req.body.movieName, req.body.movieLead,
-        req.body.movieAct, req.body.movieDuration, req.body.movieInfo], (err, result) => {
-        if (err) {
-            return err;
+    //数据库操作语法糖，直接匹配相应字段
+    db.query(userSQL.addMovie,req.body , (err,result) => {
+        if(err){
+            return ;
         }
-        res.json({isSuccess: true});
+        res.send({isSuccess:true})
     })
 
 });

@@ -114,7 +114,7 @@ export default class MovieList extends Component {
 
         } else if (nextProps.addSuccess === false) {
             alert("添加失败！");
-            // window.location.reload();
+            window.location.reload();
         }
     }
 
