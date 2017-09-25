@@ -17,7 +17,7 @@ let UserSQL = {
     modifyMovie :"update movies set movieName=?,movieLead=?,movieAct=?," +
     "movieDuration=?,movieInfo=?" +
     " where  movieId= ?",
-    addMovie: 'insert into `movies` set ?'
+    addMovie: 'insert into `movies` set ?'    //数据库操作语法糖，直接匹配相应字段
 };
 
 module.exports = UserSQL;

@@ -256,8 +256,8 @@ export default class MovieList extends Component {
                         </div>
 
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-default"
-                                    data-dismiss="modal">关闭
+                            <button type="button" className="btn btn-default" data-dismiss="modal"
+                                     >关闭
                             </button>
                             <button type="button" className="btn btn-primary" onClick={this.addMovie.bind(this)}>
                                 确认添加
