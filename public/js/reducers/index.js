@@ -4,7 +4,6 @@ import login from './login';
 import register from './register';
 import userList from './userList'
 import movieList from './movieList'
-import addMovie from './addMovie'
 
 export default combineReducers({
     hello,
@@ -12,5 +11,4 @@ export default combineReducers({
     register,
     userList,
     movieList,
-    addMovie
 });
