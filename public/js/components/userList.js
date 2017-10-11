@@ -81,7 +81,7 @@ export default class UserList extends Component {
                         <td className="col">{user.role}</td>
 
                         <td>
-                            <button className="btn btn-primary "
+                            <button className="btn btn-primary distance"
                                     onClick={this.deleteUser.bind(this, user.id)}>
                                 删除
                             </button>
@@ -99,6 +99,9 @@ export default class UserList extends Component {
         });
 
         return <div className="margin">
+            <div>
+                <h2>用户信息管理</h2>
+            </div>
             <table>
                 <tbody>
                 <tr>

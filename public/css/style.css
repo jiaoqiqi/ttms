@@ -94,4 +94,7 @@ h2{
     outline: medium /*输入时去掉外边框的方法*/
 }
 
+.distance{
+    margin-right: 40px;
+}
 

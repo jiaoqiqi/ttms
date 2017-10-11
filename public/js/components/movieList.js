@@ -134,7 +134,7 @@ export default class MovieList extends Component {
                         <td className="movieList">{movie.movieInfo}</td>
 
                         <td>
-                            <button className="btn btn-primary "
+                            <button className="btn btn-primary distance"
                                     onClick={this.deleteMovie.bind(this, movie.movieId)}>
                                 删除
                             </button>
