@@ -31,5 +31,18 @@ export default (state = {user: []}, action) => {
         return Object.assign({}, state);
     }
 
+    if (action.type === 'FIND_USER_SUCCESS') {
+
+        switch (action.data) {
+            case 'success':
+                state.findFlag = true;
+                break;
+            default:
+                state.findFlag = false;
+        }
+
+        return Object.assign({}, state);
+    }
+
     return state;
 }

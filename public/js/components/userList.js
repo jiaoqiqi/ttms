@@ -21,7 +21,7 @@ export default class UserList extends Component {
     }
 
     findUser(){
-        const userName =this.refs.findUserName.value;
+        const userName = this.refs.findUserName.value
         this.props.onFindUser({userName});
     }
 
@@ -71,14 +71,13 @@ export default class UserList extends Component {
 
         }
 
-        if (nextProps.findFlag === true) {
-            alert("查找成功！");
-            // window.location.reload();
-        } else if (nextProps.findFlag === false) {
-            alert("查找失败！");
-            // window.location.reload();
-
-        }
+        // if (nextProps.findFlag === true) {
+        //     alert("查找成功！");
+        //     // window.location.reload();
+        // } else if (nextProps.findFlag === false) {
+        //     alert("查找失败！");
+        //     // window.location.reload();
+        // }
 
 
     }
