@@ -22,7 +22,7 @@ export default class UserList extends Component {
 
     findUser(){
         const userName =this.refs.userName.value;
-        this.props.OnAddMovie({userName});
+        this.props.onFindUser({userName});
     }
 
     modifyUser() {
