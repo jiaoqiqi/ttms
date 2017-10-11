@@ -21,7 +21,7 @@ export default class UserList extends Component {
     }
 
     findUser(){
-        const userName =this.refs.userName.value;
+        const userName =this.refs.findUserName.value;
         this.props.onFindUser({userName});
     }
 
@@ -70,6 +70,17 @@ export default class UserList extends Component {
             window.location.reload();
 
         }
+
+        if (nextProps.findFlag === true) {
+            alert("查找成功！");
+            // window.location.reload();
+        } else if (nextProps.findFlag === false) {
+            alert("查找失败！");
+            // window.location.reload();
+
+        }
+
+
     }
 
     render() {
@@ -108,7 +119,7 @@ export default class UserList extends Component {
             </div>
             <div>
                 <button className="btn btn-primary addUserButton">添加</button>
-                <input type="text" className="findInput" ref="findUser"/>
+                <input type="text" className="findInput" ref="findUserName"/>
                 <button className="btn btn-primary " onClick={this.findUser.bind(this)}>查找</button>
             </div>
             <table>

@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
         user:state.userList.user,
         deleteFlag:state.userList.deleteFlag,
         updateFlag:state.userList.updateFlag,
+        findFlag : state.userList.findFlag,
 
     }
 }

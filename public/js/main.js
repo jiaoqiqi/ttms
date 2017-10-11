@@ -10,6 +10,8 @@ import middleLogin from './middlewares/login'
 import middleRegister from './middlewares/register'
 import middleUserList from './middlewares/userList';
 import middleDeleteUser from './middlewares/deleteUser'
+import middleFindUser from './middlewares/findUser'
+
 import middleMOdifyUser from './middlewares/modifyUser'
 import middleMovieList from './middlewares/movieList'
 import middleDeleteMovie from './middlewares/deleteMovie'
@@ -24,7 +26,7 @@ import MovieList from './containers/movieList'
 
 const createMiddlewareStore = applyMiddleware(middleHello,
     middleLogin, middleRegister,middleUserList,
-    middleDeleteUser,middleMOdifyUser,middleMovieList,
+    middleDeleteUser,middleMOdifyUser,middleFindUser,middleMovieList,
     middleDeleteMovie,middleModifyMovie,middleAddMovie)(createStore);
 
 const store = createMiddlewareStore(reducer);
