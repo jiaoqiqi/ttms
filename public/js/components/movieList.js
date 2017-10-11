@@ -141,7 +141,7 @@ export default class MovieList extends Component {
                         </td>
                         <td>
                             <button className="btn btn-primary "
-                                    data-toggle="modal" data-target="#myModal"
+                                    data-toggle="modal" data-target="#modifyMovie"
                                     onClick={this.onChageMovieId.bind(this, movie.movieId)}>
                                 修改
                             </button>
@@ -175,7 +175,7 @@ export default class MovieList extends Component {
 
             <div>{movieList}</div>
 
-            <div className="modal fade" id="myModal" tabIndex="-1" role="dialog"
+            <div className="modal fade" id="modifyMovie" tabIndex="-1" role="dialog"
                  aria-labelledby="myModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
                     <div className="modal-content">
@@ -187,6 +187,7 @@ export default class MovieList extends Component {
 
                         <div className="modal-body">
                             电影名称：<input type="text" ref="addName" className="kuang"
+                                        defaultValue={this.state.movieName ? this.state.movieName : ""}
                                         onChange={this.onChangeMovieName.bind(this)}/>
                         </div>
 
