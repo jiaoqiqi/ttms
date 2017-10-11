@@ -20,6 +20,11 @@ export default class UserList extends Component {
         this.props.onDeleteUser({id});
     }
 
+    findUser(){
+        const userName =this.refs.userName.value;
+        this.props.OnAddMovie({userName});
+    }
+
     modifyUser() {
         this.props.onModifyUser({
             id:this.state.id,
@@ -68,7 +73,6 @@ export default class UserList extends Component {
     }
 
     render() {
-        console.log(this.props.user)
         const userList = this.props.user.map((user, id) => {
 
             return <div key={id}>
@@ -101,6 +105,11 @@ export default class UserList extends Component {
         return <div className="margin">
             <div>
                 <h2>用户信息管理</h2>
+            </div>
+            <div>
+                <button className="btn btn-primary addUserButton">添加</button>
+                <input type="text" className="findInput" ref="findUser"/>
+                <button className="btn btn-primary " onClick={this.findUser.bind(this)}>查找</button>
             </div>
             <table>
                 <tbody>

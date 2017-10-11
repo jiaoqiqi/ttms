@@ -58,7 +58,7 @@ table{
 .addButton{
     height: 30px;
     margin-top: 10px;
-    margin-left: 90%;
+    margin-left: 80%;
     margin-bottom: 3%;
 }
 
@@ -94,7 +94,27 @@ h2{
     outline: medium /*输入时去掉外边框的方法*/
 }
 
+.findInput{
+    border: 1px solid black;
+    border-radius: 25px;
+    outline: medium; /*输入时去掉外边框的方法*/
+    margin-left: 70%;
+    height: 35px;
+    width: 20%;
+}
+
 .distance{
     margin-right: 40px;
+}
+
+.divuse{
+    display: inline;
+}
+
+.addUserButton{
+    margin-left:60% ;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 3%;
 }
 
