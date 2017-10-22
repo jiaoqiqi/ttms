@@ -73,10 +73,8 @@ export default class UserList extends Component {
 
         if (nextProps.findFlag === true) {
             alert("查找成功！");
-            window.location.reload();
         } else if (nextProps.findFlag === false) {
             alert("查找失败！");
-            console.log("failed");
         }
 
 

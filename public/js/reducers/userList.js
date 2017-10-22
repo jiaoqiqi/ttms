@@ -32,9 +32,8 @@ export default (state = {user: []}, action) => {
     }
 
     if (action.type === 'FIND_USER_SUCCESS') {
-
-        switch (action.data) {
-            case 'success':
+        switch (action.isSuccess) {
+            case true:
                 state.findFlag = true;
                 break;
             default:
