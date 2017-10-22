@@ -22,8 +22,8 @@ const mapDispatchTOProps = (dispatch) => {
         onModifyUser: (user) => {
             dispatch({type: "UPDATE_USER", user});
         },
-        onFindUser : (name) => {
-            dispatch({type:"FIND_USER",name});
+        onFindUser : (findUserName) => {
+            dispatch({type:"FIND_USER",findUserName});
         }
     }
 }

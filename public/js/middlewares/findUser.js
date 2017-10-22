@@ -3,7 +3,7 @@ import request from 'superagent';
 export default store => next => action => {
     if (action.type === 'FIND_USER') {
         request.post('/finduser')
-            .send(action.data)
+            .send({name: action.findUserName})
             .end((err, res) => {
                 if (err) {
 

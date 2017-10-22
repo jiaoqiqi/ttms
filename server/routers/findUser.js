@@ -6,8 +6,7 @@ let db = require('../dbs/connection')
 let userSQL = require('../dbs/userSql')
 
 router.post("/finduser", (req, res) => {
-    console.log(req.body);
-    const name = req.body.userName;
+    const name = req.body.name;
 
     db.query(userSQL.findUser, name, (err,result) => {
 

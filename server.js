@@ -11,7 +11,8 @@ const register = require('./server/routers/register')
 const userList = require('./server/routers/userList')
 const deleteUser = require('./server/routers/deleteUser')
 const modifyUser = require('./server/routers/modifyUser')
-const findUser = require('./server/routers/findUser')
+const findUserByName = require('./server/routers/findUser')
+
 const movieList = require('./server/routers/movieList')
 const deleteMovie = require('./server/routers/deleteMovie')
 const modifyMovie = require('./server/routers/modifyMoive')
@@ -32,7 +33,7 @@ app.use("/",movieList)
 app.use("/",deleteMovie)
 app.use("/",modifyMovie)
 app.use("/",addMovie)
-app.use("/",findUser)
+app.use("/",findUserByName)
 
 app.get("*", function (req, res) {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));

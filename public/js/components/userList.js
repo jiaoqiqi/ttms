@@ -20,11 +20,6 @@ export default class UserList extends Component {
         this.props.onDeleteUser({id});
     }
 
-    findUser(){
-        const userName = this.refs.findUserName.value
-        this.props.onFindUser({userName});
-    }
-
     modifyUser() {
         this.props.onModifyUser({
             id:this.state.id,
@@ -51,6 +46,11 @@ export default class UserList extends Component {
         })
     }
 
+    findUser(){
+        const findUserName = this.refs.findUserName.value;
+        this.props.onFindUser(findUserName);
+    }
+
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.deleteFlag === true) {
@@ -71,13 +71,13 @@ export default class UserList extends Component {
 
         }
 
-        // if (nextProps.findFlag === true) {
-        //     alert("查找成功！");
-        //     // window.location.reload();
-        // } else if (nextProps.findFlag === false) {
-        //     alert("查找失败！");
-        //     // window.location.reload();
-        // }
+        if (nextProps.findFlag === true) {
+            alert("查找成功！");
+            window.location.reload();
+        } else if (nextProps.findFlag === false) {
+            alert("查找失败！");
+            console.log("failed");
+        }
 
 
     }
@@ -118,8 +118,11 @@ export default class UserList extends Component {
             </div>
             <div>
                 <button className="btn btn-primary addUserButton">添加</button>
+
                 <input type="text" className="findInput" ref="findUserName"/>
-                <button className="btn btn-primary " onClick={this.findUser.bind(this)}>查找</button>
+                <button className="btn btn-primary "
+                        onClick={this.findUser.bind(this)}>查找</button>
+
             </div>
             <table>
                 <tbody>
