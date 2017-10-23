@@ -34,10 +34,13 @@ export default (state = {user: []}, action) => {
     if (action.type === 'FIND_USER_SUCCESS') {
         switch (action.isSuccess) {
             case true:
+                // console.log(action.data)
+                state.user=action.data;
                 state.findFlag = true;
                 break;
             default:
                 state.findFlag = false;
+
         }
 
         return Object.assign({}, state);

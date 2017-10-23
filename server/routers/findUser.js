@@ -9,12 +9,12 @@ router.post("/finduser", (req, res) => {
     const name = req.body.name;
 
     db.query(userSQL.findUser, name, (err,result) => {
-        console.log(result)
-
+        // console.log(result)
         if(err){
             return err;
         }
-        res.json({isSuccess: true});
+        res.send({isSuccess: true,result:result});
+
     })
 
 });

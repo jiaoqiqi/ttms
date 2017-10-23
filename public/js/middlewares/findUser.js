@@ -9,7 +9,7 @@ export default store => next => action => {
 
                     next({type: "FIND_USER_SUCCESS", isSuccess: false});
                 }
-                next({type: "FIND_USER_SUCCESS", isSuccess: res.body.isSuccess});
+                next({type: "FIND_USER_SUCCESS", isSuccess: res.body.isSuccess,data:res.body.result});
             });
     }
     else
