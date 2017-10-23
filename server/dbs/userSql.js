@@ -10,7 +10,8 @@ let UserSQL = {
     "from dual where not exists(select name from user where name = ?)",
     //判断输入的名字是否存在，存在则不插入
     findName: "select name from user where name = ?",
-    findUser: "select * from user where name regexp ? ",
+    findUser: "select * from user where name like ?  ",
+    // findUser: "select * from user where name regexp ?",
     // select * from admin where name regexp ‘keyword’
 
     selectMovies:"select * from movies",
