@@ -17,6 +17,7 @@ const movieList = require('./server/routers/movieList')
 const deleteMovie = require('./server/routers/deleteMovie')
 const modifyMovie = require('./server/routers/modifyMoive')
 const addMovie = require('./server/routers/addMovie')
+const findMovieByName = require('./server/routers/findMovie')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -34,6 +35,7 @@ app.use("/",deleteMovie)
 app.use("/",modifyMovie)
 app.use("/",addMovie)
 app.use("/",findUserByName)
+app.use("/",findMovieByName)
 
 app.get("*", function (req, res) {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));

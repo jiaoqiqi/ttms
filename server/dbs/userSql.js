@@ -14,12 +14,13 @@ let UserSQL = {
     // findUser: "select * from user where name regexp ?",
     // select * from admin where name regexp ‘keyword’
 
-    selectMovies:"select * from movies",
-    deleteMovie :"delete from movies where movieId = ?",
-    modifyMovie :"update movies set movieName=?,movieLead=?,movieAct=?," +
+    selectMovies: "select * from movies",
+    deleteMovie: "delete from movies where movieId = ?",
+    modifyMovie: "update movies set movieName=?,movieLead=?,movieAct=?," +
     "movieDuration=?,movieInfo=?" +
     " where  movieId= ?",
-    addMovie: 'insert into `movies` set ?'    //数据库操作语法糖，直接匹配相应字段
+    addMovie: 'insert into `movies` set ?',  //数据库操作语法糖，直接匹配相应字段
+    findMovie: "select * from movies where movieName like ?  ",
 };
 
 module.exports = UserSQL;

@@ -89,6 +89,11 @@ export default class MovieList extends Component {
 
     }
 
+    findMovie(){
+        const findMovieName = this.refs.findMovieName.value;
+        this.props.OnFindMovie(findMovieName);
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.deleteMovieFlag === true) {
             alert("删除成功！");
@@ -115,6 +120,12 @@ export default class MovieList extends Component {
         } else if (nextProps.addSuccess === false) {
             alert("添加失败！");
             window.location.reload();
+        }
+
+        if (nextProps.findMovieFlag === true) {
+            alert("查找成功！");
+        } else if (nextProps.findMovieFlag === false) {
+            alert("查找失败！");
         }
     }
 
@@ -159,6 +170,11 @@ export default class MovieList extends Component {
             <div>
                 <button className="btn btn-primary addButton"
                         data-toggle="modal" data-target="#addMovie">添加</button>
+            </div>
+            <div>
+                <input type="text" className="findInput" ref="findMovieName"/>
+                <button className="btn btn-primary "
+                        onClick={this.findMovie.bind(this)}>查找</button>
             </div>
             <table>
                 <tbody>

@@ -34,5 +34,20 @@ export default (state = {movie: [],addSuccess:""}, action,) => {
         return Object.assign({}, state);
     }
 
+    if (action.type === 'FIND_MOVIE_SUCCESS') {
+        switch (action.isSuccess) {
+            case true:
+                // console.log(action.data)
+                state.movie=action.data;
+                state.findMovieFlag = true;
+                break;
+            default:
+                state.findMovieFlag = false;
+
+        }
+
+        return Object.assign({}, state);
+    }
+
     return state;
 }
