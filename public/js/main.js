@@ -26,9 +26,9 @@ import UserList from './containers/userList';
 import MovieList from './containers/movieList'
 
 const createMiddlewareStore = applyMiddleware(middleHello,
-    middleLogin, middleRegister,middleUserList,
-    middleDeleteUser,middleMOdifyUser,middleFindUser,
-    middleMovieList, middleDeleteMovie,middleModifyMovie,middleAddMovie,middleFindMovie)(createStore);
+    middleLogin, middleRegister, middleUserList,
+    middleDeleteUser, middleMOdifyUser, middleFindUser,
+    middleMovieList, middleDeleteMovie, middleModifyMovie, middleAddMovie, middleFindMovie)(createStore);
 
 const store = createMiddlewareStore(reducer);
 

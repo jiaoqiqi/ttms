@@ -3,14 +3,14 @@ import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
     return {
-        registerSuccess : state.register.registerSuccess,
+        registerSuccess: state.register.registerSuccess,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onRegister:(registerInfo)=>{
-            dispatch({type:'REGISTER',data:registerInfo})
+        onRegister: (registerInfo) => {
+            dispatch({type: 'REGISTER', data: registerInfo})
         },
     }
 }

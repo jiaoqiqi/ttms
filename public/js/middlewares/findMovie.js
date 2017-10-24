@@ -9,9 +9,11 @@ export default store => next => action => {
 
                     next({type: "FIND_MOVIE_SUCCESS", isSuccess: false});
                 }
-                next({type: "FIND_MOVIE_SUCCESS",
+                next({
+                    type: "FIND_MOVIE_SUCCESS",
                     isSuccess: res.body.isSuccess,
-                    data:res.body.result});
+                    data: res.body.result
+                });
             });
     }
     else

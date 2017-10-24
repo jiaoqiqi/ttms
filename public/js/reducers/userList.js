@@ -35,7 +35,7 @@ export default (state = {user: []}, action) => {
         switch (action.isSuccess) {
             case true:
                 // console.log(action.data)
-                state.user=action.data;
+                state.user = action.data;
                 state.findFlag = true;
                 break;
             default:

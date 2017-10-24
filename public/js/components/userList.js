@@ -22,7 +22,7 @@ export default class UserList extends Component {
 
     modifyUser() {
         this.props.onModifyUser({
-            id:this.state.id,
+            id: this.state.id,
             name: this.state.name,
             role: this.state.role
         });
@@ -40,13 +40,13 @@ export default class UserList extends Component {
         });
     }
 
-    onChageId(id){
+    onChageId(id) {
         this.setState({
-            id:id
+            id: id
         })
     }
 
-    findUser(){
+    findUser() {
         const findUserName = this.refs.findUserName.value;
         this.props.onFindUser(findUserName);
     }
@@ -100,7 +100,8 @@ export default class UserList extends Component {
                         </td>
                         <td>
                             <button className="btn btn-primary "
-                                    data-toggle="modal" data-target="#myModal" onClick={this.onChageId.bind(this,user.id)}>
+                                    data-toggle="modal" data-target="#myModal"
+                                    onClick={this.onChageId.bind(this, user.id)}>
                                 修改
                             </button>
                         </td>
@@ -119,7 +120,8 @@ export default class UserList extends Component {
 
                 <input type="text" className="findInput" ref="findUserName"/>
                 <button className="btn btn-primary "
-                        onClick={this.findUser.bind(this)}>查找</button>
+                        onClick={this.findUser.bind(this)}>查找
+                </button>
 
             </div>
             <table>
@@ -140,23 +142,25 @@ export default class UserList extends Component {
                     <div className="modal-content">
                         <div className="modal-header">
                             <button type="button" className="close" data-dismiss="modal"
-                                    aria-hidden="true" >&times;</button>
+                                    aria-hidden="true">&times;</button>
                             <h4 className="modal-title" id="myModalLabel">用户信息</h4>
                         </div>
 
                         <div className="modal-body">
-                            用户名：<input type="text" ref="name"  onChange={this.onChangeName.bind(this)}/>
+                            用户名：<input type="text" ref="name" onChange={this.onChangeName.bind(this)}/>
                         </div>
 
                         <div className="modal-body">
-                            权限：<input type="text" ref="role"  onChange={this.onChangeRole.bind(this)}/>
+                            权限：<input type="text" ref="role" onChange={this.onChangeRole.bind(this)}/>
                         </div>
 
                         <div className="modal-footer">
                             <button type="button" className="btn btn-default"
-                                    data-dismiss="modal">关闭</button>
+                                    data-dismiss="modal">关闭
+                            </button>
                             <button type="button" className="btn btn-primary" onClick={this.modifyUser.bind(this)}>
-                                提交更改</button>
+                                提交更改
+                            </button>
                         </div>
 
                     </div>

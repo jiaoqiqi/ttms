@@ -8,12 +8,12 @@ let userSQL = require('../dbs/userSql')
 router.post("/findmovie", (req, res) => {
     const movieName = req.body.name;
 
-    db.query(userSQL.findMovie, ["%"+movieName+"%"], (err,result) => {
+    db.query(userSQL.findMovie, ["%" + movieName + "%"], (err, result) => {
         console.log(result)
-        if(err){
+        if (err) {
             return err;
         }
-        res.send({isSuccess: true,result:result});
+        res.send({isSuccess: true, result: result});
 
     })
 

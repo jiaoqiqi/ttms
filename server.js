@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = new express();
 const path = require('path');
@@ -25,17 +24,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 
 app.use("/", hello);
-app.use("/",login)
-app.use("/",register)
-app.use("/",userList)
-app.use("/",deleteUser)
-app.use("/",modifyUser)
-app.use("/",movieList)
-app.use("/",deleteMovie)
-app.use("/",modifyMovie)
-app.use("/",addMovie)
-app.use("/",findUserByName)
-app.use("/",findMovieByName)
+app.use("/", login)
+app.use("/", register)
+app.use("/", userList)
+app.use("/", deleteUser)
+app.use("/", modifyUser)
+app.use("/", movieList)
+app.use("/", deleteMovie)
+app.use("/", modifyMovie)
+app.use("/", addMovie)
+app.use("/", findUserByName)
+app.use("/", findMovieByName)
 
 app.get("*", function (req, res) {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));

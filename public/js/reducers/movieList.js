@@ -1,11 +1,11 @@
-export default (state = {movie: [],addSuccess:""}, action,) => {
+export default (state = {movie: [], addSuccess: ""}, action,) => {
     if (action.type === 'SHOW_MOVIES') {
         state.movie = action.data;
 
         return Object.assign({}, state);
     }
 
-    if(action.type === "DELETE_MOVIE_FLAG"){
+    if (action.type === "DELETE_MOVIE_FLAG") {
         switch (action.data) {
             case 'success':
                 state.deleteMovieFlag = true;
@@ -17,7 +17,7 @@ export default (state = {movie: [],addSuccess:""}, action,) => {
         return Object.assign({}, state);
     }
 
-    if(action.type === "UPDATE_MOVIE_FLAG"){
+    if (action.type === "UPDATE_MOVIE_FLAG") {
         switch (action.data) {
             case 'success':
                 state.modifyMovieFlag = true;
@@ -38,7 +38,7 @@ export default (state = {movie: [],addSuccess:""}, action,) => {
         switch (action.isSuccess) {
             case true:
                 // console.log(action.data)
-                state.movie=action.data;
+                state.movie = action.data;
                 state.findMovieFlag = true;
                 break;
             default:
