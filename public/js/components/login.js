@@ -17,7 +17,7 @@ export default class Login extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.logSuccess === true && nextProps.logInfo === "success") {
-            alert(nextProps.logInfo);
+            // alert(nextProps.logInfo);
             browserHistory.push('/userList');
         } else if (nextProps.logSuccess === false && nextProps.logInfo === "password is not correct") {
             alert("login failed because password is not correct");

@@ -51,7 +51,6 @@ export default class UserList extends Component {
         this.props.onFindUser(findUserName);
     }
 
-
     componentWillReceiveProps(nextProps) {
         if (nextProps.deleteFlag === true) {
             alert("删除成功！");
@@ -113,7 +112,8 @@ export default class UserList extends Component {
 
         return <div className="margin">
             <div>
-                <h2>用户信息管理</h2>
+                <h2 className="top">用户信息管理</h2>
+                {/*<button className="quite">退出</button>*/}
             </div>
             <div>
                 <button className="btn btn-primary addUserButton">添加</button>

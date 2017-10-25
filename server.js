@@ -4,6 +4,8 @@ const path = require('path');
 
 const bodyParser = require('body-parser');
 
+// const session = require('express-session');
+
 const hello = require('./server/routers/hello');
 const login = require('./server/routers/login')
 const register = require('./server/routers/register')
@@ -36,8 +38,34 @@ app.use("/", addMovie)
 app.use("/", findUserByName)
 app.use("/", findMovieByName)
 
+// app.use(session({
+//     secret: 'hubwiz app', //secret的值建议使用随机字符串
+//     cookie: {maxAge: 60 * 1000 * 30} // 过期时间（毫秒）
+// }));
+// app.get('/', function (req, res) {
+//     if (req.session.sign) {//检查用户是否已经登录
+//         console.log(req.session);//打印session的值
+//         res.send('welecome <strong>' + req.session.name + '</strong>, 欢迎你再次登录');
+//     } else {
+//         req.session.sign = true;
+//         req.session.name = '汇智网';
+//         res.send('欢迎登陆！');
+//     }
+// });
+// app.listen(80);
+
+
 app.get("*", function (req, res) {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
+    // if (req.session.sign) {//检查用户是否已经登录
+    //     console.log(req.session);//打印session的值
+    //     res.send('welecome <strong>' + req.session.name + '</strong>, 欢迎你再次登录');
+    // } else {
+    //     console.log(2134235)
+    //     req.session.sign = true;
+    //     req.session.name = '';
+    //     res.send('请先登录！');
+    // }
 });
 
 app.listen(3000, () => {
