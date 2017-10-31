@@ -123,7 +123,6 @@ export default class MovieList extends Component {
         }
 
         if (nextProps.findMovieFlag === true) {
-            alert("查找成功！");
         } else if (nextProps.findMovieFlag === false) {
             alert("查找失败！");
         }
