@@ -147,7 +147,7 @@ export default class UserList extends Component {
                         </div>
 
                         <div className="modal-body">
-                            用户名：<input type="text" ref="name" onChange={this.onChangeName.bind(this)}/>
+                            用户名：<input type="text" ref="name"  onChange={this.onChangeName.bind(this)}/>
                         </div>
 
                         <div className="modal-body">
