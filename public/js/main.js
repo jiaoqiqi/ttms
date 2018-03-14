@@ -24,6 +24,7 @@ import Login from './containers/login';
 import Register from './containers/register';
 import UserList from './containers/userList';
 import MovieList from './containers/movieList'
+import LikeButton from './containers/likeButton'
 
 const createMiddlewareStore = applyMiddleware(middleHello,
     middleLogin, middleRegister, middleUserList,
@@ -40,5 +41,6 @@ render(<Provider store={store}>
         <Route path="/register" component={Register}/>
         <Route path="/userList" component={UserList}/>
         <Route path="/movieList" component={MovieList}/>
+        <Route path="/likeButton" component={LikeButton}/>
     </Router>
 </Provider>, document.getElementById("content"));
